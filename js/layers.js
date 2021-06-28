@@ -10,7 +10,7 @@ addLayer("p", {
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
     resource: "Space", // Name of prestige currency
     baseResource: "Space", // Name of resource prestige is based on
-    baseAmount() {return player.points}, // Get the current amount of baseResource
+    baseAmount() {return player.points},  // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
@@ -24,5 +24,12 @@ addLayer("p", {
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
+    upgrades: {11: { name: " More land. ",
+    description: "Double your point gain.",
+    cost: new Decimal(1),
+    
+    },
+
+    },
 })
