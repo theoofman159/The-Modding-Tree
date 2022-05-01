@@ -1,15 +1,15 @@
-addLayer("p", {
-    name: "Space", // This is optional, only used in a few places, If absent it just uses the layer id.
-    symbol: "S", // This appears on the layer's node. Default is the id with the first letter capitalized
+addLayer("Fr", {
+    name: "Freezing", // This is optional, only used in a few places, If absent it just uses the layer id.
+    symbol: "Fr", // This appears on the layer's node. Default is the id with the first letter capitalized
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "White",
+    color: "Blue",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
-    resource: "Space", // Name of prestige currency
-    baseResource: "Space", // Name of resource prestige is based on
+    resource: "Freezing Bots", // Name of prestige currency
+    baseResource: "Points", // Name of resource prestige is based on
     baseAmount() {return player.points},  // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.5, // Prestige currency exponent
@@ -22,10 +22,10 @@ addLayer("p", {
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "f", description: "F: Reset for Freezing Bots", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
-    upgrades: {11: { name: " More land. ",
+    upgrades: {11: { name: " Freezing Points. ",
     description: "Double your point gain.",
     cost: new Decimal(1),
     
